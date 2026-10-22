@@ -295,6 +295,39 @@ function shutdown()
 /***** Formatting functions *****/
 
 /**
+ * Replace masks in the STRING values of a (possibly nested) array, leaving
+ * every other value (objects, arrays, booleans, integers, NULL) untouched.
+ *
+ * Widget and container params mix strings holding masks like $wi_ID$ with
+ * objects (WidgetContainer, ItemList, Item...). str_replace() applied to the
+ * whole array tries to cast those objects to string, which is a fatal Error
+ * since PHP 8.0 ("Object of class ... could not be converted to string").
+ *
+ * @param string|array Mask(s) to search for (same as str_replace())
+ * @param string|array Replacement(s) (same as str_replace())
+ * @param mixed Value to process
+ * @return mixed Processed value
+ */
+function str_replace_in_strings( $search, $replace, $subject )
+{
+	if( is_string( $subject ) )
+	{
+		return str_replace( $search, $replace, $subject );
+	}
+
+	if( is_array( $subject ) )
+	{
+		foreach( $subject as $key => $value )
+		{
+			$subject[ $key ] = str_replace_in_strings( $search, $replace, $value );
+		}
+	}
+
+	return $subject;
+}
+
+
+/**
  * Format a string/content for being output
  *
  * @author fplanque
