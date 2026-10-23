@@ -325,7 +325,7 @@ function & get_featured_Item( $restrict_disp = 'posts', $coll_IDs = NULL, $previ
 	}
 
 	// Convert to boolean because settings may have '0' and '1' values instead:
-	$load_featured = (boolean)$load_featured;
+	$load_featured = (bool)$load_featured;
 
 	// Check clear disp details without suffix -intro and -nointro:
 	$check_clear_disp_detail = preg_replace( '#(-intro|-nointro)$#', '', $disp_detail );
@@ -470,7 +470,7 @@ function & get_featured_Item( $restrict_disp = 'posts', $coll_IDs = NULL, $previ
  */
 function has_featured_Item( $restrict_disp = 'posts', $coll_IDs = NULL, $check_featured = false )
 {
-	return (boolean)get_featured_Item( $restrict_disp, $coll_IDs, true, $check_featured );
+	return (bool)get_featured_Item( $restrict_disp, $coll_IDs, true, $check_featured );
 }
 
 

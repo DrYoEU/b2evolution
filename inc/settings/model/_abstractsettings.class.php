@@ -707,7 +707,7 @@ class AbstractSettings
 		if( ! empty($query_where_delete) )
 		{
 			$query = 'DELETE FROM '.$this->db_table_name." WHERE\n(".implode( ")\nOR (", $query_where_delete ).')';
-			$r = (boolean)$DB->query( $query );
+			$r = (bool)$DB->query( $query );
 		}
 
 

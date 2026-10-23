@@ -565,7 +565,7 @@ class Plugin
 	 *          'http://example.com/uri': a full URL (starting with http:// or https://)
 	 * 'layout': Use this to visually group your settings.
 	 *               Either 'begin_fieldset', 'end_fieldset' or 'separator'. You can use 'label' for 'begin_fieldset'.
-	 * 'multiple': This allows to select multiple values in a SELECT (including select_*) (boolean)
+	 * 'multiple': This allows to select multiple values in a SELECT (including select_*) (bool)
 	 * 'id', 'onchange', 'onclick', 'onfocus', 'onkeyup', 'onkeydown', 'onreset', 'onselect', 'cols', 'rows', 'maxlength':
 	 *       get passed through as attributes to the form/input element.
 	 *
@@ -2072,7 +2072,7 @@ class Plugin
 	 *   - 'Comment': the Comment (by reference)
 	 *   - 'original_comment': this is the unstripped and unformated posted comment
 	 *   - 'action': "save" or "preview" (by reference) (since 1.10)
-	 *   - 'is_preview': is this a request for previewing the comment? (boolean)
+	 *   - 'is_preview': is this a request for previewing the comment? (bool)
 	 */
 	function BeforeCommentFormInsert( & $params )
 	{
@@ -3099,7 +3099,7 @@ class Plugin
 	 *   - 'edit_layout':
 	 *			"public" - public front-office user profile form (info only),
 	 *			"private" - private front-office user profile form (editable),
-	 *   - 'is_admin_page': (boolean) indicates whether we are in front-office or back-office
+	 *   - 'is_admin_page': (bool) indicates whether we are in front-office or back-office
 	 */
 	function DisplayProfileFormFieldset( & $params )
 	{

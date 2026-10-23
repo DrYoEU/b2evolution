@@ -2198,7 +2198,7 @@ function regenerate_url( $ignore = '', $set = '', $pagefileurl = '', $glue = '&a
 			{ // Remove leading question mark, e.g. from QUERY_STRING
 				$set = substr($set, 1);
 			}
-			$set = preg_split( '~&(amp;)?~', $set, NULL, PREG_SPLIT_NO_EMPTY );
+			$set = preg_split( '~&(amp;)?~', $set, -1, PREG_SPLIT_NO_EMPTY );
 		}
 		// Merge them in:
 		$params = array_merge( $params, $set );

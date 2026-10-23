@@ -7363,7 +7363,7 @@ function force_https_url( $url, $force_https = true )
 	if( $force_https === 'login' )
 	{	// Force url to use https if it is defiend in the setting "Require SSL":
 		global $Settings;
-		$force_https = (boolean)$Settings->get( 'require_ssl' );
+		$force_https = (bool)$Settings->get( 'require_ssl' );
 	}
 
 	if( $force_https === true )

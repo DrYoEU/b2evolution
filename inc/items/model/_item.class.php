@@ -14009,7 +14009,7 @@ class Item extends ItemLight
 			$SQL->WHERE( 'iver_itm_ID = '.$this->ID );
 			$SQL->WHERE_and( 'iver_type = "proposed"' );
 
-			$this->has_proposed_change = (boolean) $DB->get_var( $SQL->get(), 0, NULL, $SQL->title );
+			$this->has_proposed_change = (bool) $DB->get_var( $SQL->get(), 0, NULL, $SQL->title );
 		}
 
 		return $this->has_proposed_change;
