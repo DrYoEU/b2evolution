@@ -829,6 +829,11 @@ function country_flag( $country_code, $country_name, $collection = 'w16px', $cla
 {
 	global $country_flags_bg;
 
+	if( $country_code === NULL )
+	{	// Unknown country: no flag to look up (PHP 8.5 deprecates NULL as an array offset)
+		$country_code = '';
+	}
+
 	$flag_attribs = array(
 		'class' => 'flag',
 		'title' => $country_name,

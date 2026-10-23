@@ -351,7 +351,7 @@ if( $action != 'view' )
 				$birthday_months = array();
 				if( $Settings->get( 'birthday_month' ) == 'optional' )
 				{
-					$birthday_months[NULL] = '---';
+					$birthday_months[''] = '---';
 				}
 				foreach( $month as $key => $value )
 				{

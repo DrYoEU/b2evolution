@@ -6047,7 +6047,7 @@ function item_type_global_icons( $object_Widget )
 				);
 				// Make last used import controller first:
 				$last_import_controller = $Session->get( 'last_import_controller_'.$Blog->ID );
-				if( isset( $import_buttons[ $last_import_controller ] ) )
+				if( $last_import_controller !== NULL && isset( $import_buttons[ $last_import_controller ] ) )
 				{
 					$first_import_button = $import_buttons[ $last_import_controller ];
 					unset( $import_buttons[ $last_import_controller ] );
