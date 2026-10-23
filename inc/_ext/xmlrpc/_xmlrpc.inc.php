@@ -662,7 +662,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 						else
 						{
 							// it's ok, add it on
-							$GLOBALS['_xh']['value']=(double)$GLOBALS['_xh']['ac'];
+							$GLOBALS['_xh']['value']=(float)$GLOBALS['_xh']['ac'];
 						}
 					}
 					else
@@ -2629,7 +2629,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 				}
 				error_log($errstr);
 				$r = new xmlrpcresp(0, $GLOBALS['xmlrpcerr']['invalid_return'], $GLOBALS['xmlrpcstr']['invalid_return'].' ('.$errstr.')');
-				xml_parser_free($parser);
+				if( PHP_VERSION_ID < 80000 ) { xml_parser_free($parser); } // no effect since PHP 8.0, deprecated in 8.5
 				if($this->debug)
 				{
 					print $errstr;
@@ -2639,7 +2639,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 				$r->raw_data = $raw_data;
 				return $r;
 			}
-			xml_parser_free($parser);
+			if( PHP_VERSION_ID < 80000 ) { xml_parser_free($parser); } // no effect since PHP 8.0, deprecated in 8.5
 			// second error check: xml well formed but not xml-rpc compliant
 			if ($GLOBALS['_xh']['isf'] > 1)
 			{
@@ -2961,7 +2961,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 							// sprintf('%F') could be most likely ok but it fails eg. on 2e-14.
 							// The code below tries its best at keeping max precision while avoiding exp notation,
 							// but there is of course no limit in the number of decimal places to be used...
-							$rs.="<{$typ}>".preg_replace('/\\.?0+$/','',number_format((double)$val, 128, '.', ''))."</{$typ}>";
+							$rs.="<{$typ}>".preg_replace('/\\.?0+$/','',number_format((float)$val, 128, '.', ''))."</{$typ}>";
 							break;
 						case $GLOBALS['xmlrpcDateTime']:
 							if (is_string($val))
@@ -3585,10 +3585,10 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 						xml_error_string(xml_get_error_code($parser)),
 						xml_get_current_line_number($parser), xml_get_current_column_number($parser));
 			error_log($errstr);
-			xml_parser_free($parser);
+			if( PHP_VERSION_ID < 80000 ) { xml_parser_free($parser); } // no effect since PHP 8.0, deprecated in 8.5
 			return false;
 		}
-		xml_parser_free($parser);
+		if( PHP_VERSION_ID < 80000 ) { xml_parser_free($parser); } // no effect since PHP 8.0, deprecated in 8.5
 		if ($GLOBALS['_xh']['isf'] > 1) // test that $GLOBALS['_xh']['value'] is an obj, too???
 		{
 			error_log($GLOBALS['_xh']['isf_reason']);
