@@ -5473,10 +5473,10 @@ class Item extends ItemLight
 			$placeholder_html = $params['placeholder'];
 			switch( $placeholder_html )
 			{
-				case '#file_text_icon';
+				case '#file_text_icon':
 					$placeholder_html = '<div class="evo_image_block evo_img_placeholder"><a href="$url$" class="evo_img_placeholder"><i class="fa fa-file-text-o"></i></a></div>';
 					break;
-				case '#file_thumbnail_text_icon';
+				case '#file_thumbnail_text_icon':
 					$placeholder_html = '<div class="evo_thumblist_placeholder" style="width:80px;height:80px"><a href="$url$"></a></div>';
 					break; 
 			}
