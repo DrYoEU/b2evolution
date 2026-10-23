@@ -34,6 +34,7 @@ load_class( 'plugins/_plugin.class.php', 'Plugin' );
  *
  * @package plugins
  */
+#[\AllowDynamicProperties]
 class Plugins
 {
 	/**#@+

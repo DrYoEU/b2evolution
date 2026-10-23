@@ -407,6 +407,7 @@ class calendar_plugin extends Plugin
  *
  * @package evocore
  */
+#[\AllowDynamicProperties]
 class Calendar
 {
 	var $year;

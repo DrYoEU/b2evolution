@@ -37,6 +37,7 @@ load_funcs('_core/_url.funcs.php');
  *
  * @package evocore
  */
+#[\AllowDynamicProperties]
 class XHTML_Validator
 {
 	var $tags;      // Array showing allowed attributes for tags

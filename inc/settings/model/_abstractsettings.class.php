@@ -33,6 +33,7 @@ $GLOBALS['debug_settings'] = false;
  * @abstract
  * @see UserSettings, GeneralSettings, PluginSettings, CollectionSettings
  */
+#[\AllowDynamicProperties]
 class AbstractSettings
 {
 	/**

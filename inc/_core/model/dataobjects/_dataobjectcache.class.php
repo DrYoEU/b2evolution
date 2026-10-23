@@ -31,6 +31,7 @@ load_class( '_core/model/db/_sql.class.php', 'SQL' );
  * @package evocore
  * @version beta
  */
+#[\AllowDynamicProperties] // per-cache lookup arrays are added by subclasses
 class DataObjectCache
 {
 	var $dbtablename;

@@ -25,6 +25,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
  * @abstract
  * @package plugins
  */
+#[\AllowDynamicProperties] // plugins keep their runtime state as properties
 class Plugin
 {
 	/**
