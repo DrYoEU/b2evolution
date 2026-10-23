@@ -30,6 +30,7 @@ Nothing else was raised: no `declare(strict_types)`, no typed properties, no `ma
 | 11, 18 | Bundled libraries (`inc/_ext`) | Swift Mailer (`?Swift_AddressEncoder`, `parent::__construct(...)`), idna_convert, portable_utf8, xmlrpc (`"${var}"`, `(float)`), `curl_close()`/`xml_parser_free()` kept behind `PHP_VERSION_ID < 80000` |
 | 19 | `fgetcsv()` `$escape` must be passed explicitly (8.4) | 4 calls, current default `"\\"` kept |
 | 20 | `__autoload()` is a compile error (8.0) | dead PHP < 5.1.2 fallback file removed |
+| 22 | `imap_open()` returns an `IMAP\Connection` object (8.1), not a resource | `=== false` test instead of `get_resource_type()` in returned-mail and post-by-mail processing |
 
 Also fixed on the way: `intdiv()` where `/` produced floats used as array keys, `(string)` casts
 on back-office columns, plugins without code no longer indexed.
@@ -41,9 +42,12 @@ public pages (collections, single posts, archives, tags, search, comments, feeds
 the back-office screens listed above. The remaining log lines are *data* problems
 (`libpng warning: iCCP` on some uploaded PNGs), not code.
 
-**Not exercised**: the installer and upgrader (`/install/`), XML-RPC *clients*, `imap`
-(removed from PHP core in 8.4; two optional features), e-mail campaigns and automations
-runtime, most bundled plugins beyond rendering. Deprecations found there are welcome as issues.
+**imap**: the extension left PHP core in 8.4; install the PECL build (`php8.5-imap` on Debian/Surý,
+`install-php-extensions imap` in Docker). Returned-mail processing (cron) and post-by-mail are fixed for
+the object API (commit 22) and run in production.
+
+**Not exercised**: the installer and upgrader (`/install/`), XML-RPC *clients*, e-mail campaigns and
+automations runtime, most bundled plugins beyond rendering. Deprecations found there are welcome as issues.
 
 ## Trying it
 
