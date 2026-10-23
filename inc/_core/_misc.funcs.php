@@ -746,6 +746,12 @@ function convert_chars( $content, $flag = 'html' )
 {
 	global $b2_htmltrans, $evo_charset;
 
+	if( $content === NULL )
+	{	// Empty fields are often NULL: strtr()/preg_replace() on NULL is deprecated since PHP 8.1
+		// and already returned an empty string.
+		$content = '';
+	}
+
 	/**
 	 * Translation of invalid Unicode references range to valid range.
 	 * These are Windows CP1252 specific characters.
