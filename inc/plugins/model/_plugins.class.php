@@ -441,7 +441,10 @@ class Plugins
 		}
 
 		// Memorizes Plugin in code hash array:
-		if( ! empty($this->index_code_ID[ $Plugin->code ]) && $this->index_code_ID[ $Plugin->code ] != $Plugin->ID )
+		if( $Plugin->code === NULL )
+		{	// Plugins without a code are not indexed by code (PHP 8.5 deprecates NULL as an array offset)
+		}
+		elseif( ! empty($this->index_code_ID[ $Plugin->code ]) && $this->index_code_ID[ $Plugin->code ] != $Plugin->ID )
 		{ // The plugin's default code is already in use!
 			$Plugin->code = NULL;
 		}
@@ -2168,7 +2171,7 @@ class Plugins
 
 		if( ! is_array( $current_renderers ) )
 		{
-			$current_renderers = explode( '.', $current_renderers );
+			$current_renderers = explode( '.', (string) $current_renderers );
 		}
 
 		$setting_Blog = NULL;

@@ -5089,6 +5089,7 @@ function prepare_item_content( $content )
 			'[teaserbreak]', '[teaserbreak]', '[teaserbreak]',
 			'[pagebreak]', '[pagebreak]', '[pagebreak]'
 		);
+	$content = (string) $content;
 	if( strpos( $content, '<code' ) !== false || strpos( $content, '<pre' ) !== false )
 	{ // Call prepare_item_content_callback() on everything outside code/pre:
 		$content = callback_on_non_matching_blocks( $content,

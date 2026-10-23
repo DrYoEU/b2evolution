@@ -13593,7 +13593,7 @@ class Item extends ItemLight
 		}
 
 		// Try to use a message from Item Type setting:
-		$item_type_msg = trim( $this->get_type_setting( 'comment_form_msg' ) );
+		$item_type_msg = trim( (string) $this->get_type_setting( 'comment_form_msg' ) );
 		if( ! empty( $item_type_msg ) )
 		{	// Use a message of the item type:
 			return $item_type_msg;

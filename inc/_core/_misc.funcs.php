@@ -397,7 +397,7 @@ function format_to_output( $content, $format = 'htmlbody' )
 		case 'formvalue':
 			// Replace special chars to &amp;, &quot;, &#039;|&apos;, &lt; and &gt; :
 			// Handles & " ' < > to &amp; &quot; &apos; &lt; &gt;
-			$content = htmlspecialchars( $content, ENT_QUOTES | ENT_HTML5, $evo_charset );
+			$content = htmlspecialchars( (string) $content, ENT_QUOTES | ENT_HTML5, $evo_charset );
 			break;
 
 		case 'xml':
@@ -426,7 +426,7 @@ function format_to_output( $content, $format = 'htmlbody' )
 		case 'syslog':
 			// Replace special chars to &amp;, &quot;, &#039;|&apos;, &lt; and &gt; :
 			// Handles & " ' < > to &amp; &quot; &apos; &lt; &gt;
-			$content = htmlspecialchars( $content, ENT_QUOTES | ENT_HTML5, $evo_charset );
+			$content = htmlspecialchars( (string) $content, ENT_QUOTES | ENT_HTML5, $evo_charset );
 			$content = preg_replace( "/\[\[(.+?)]]/is", "<code>$1</code>", $content ); // Replaces [[...]] into <code>...</code>
 			break;
 
@@ -6160,7 +6160,7 @@ function format_french_phone( $phone )
 function get_manual_url( $topic )
 {
 	// fp> TODO: this below is a temmporary hack while we work on the new manual:
-	return 'http://b2evolution.net/man/'.str_replace( '_', '-', strtolower( rawurlencode( $topic ) ) );
+	return 'http://b2evolution.net/man/'.str_replace( '_', '-', strtolower( rawurlencode( (string) $topic ) ) );
 }
 
 
