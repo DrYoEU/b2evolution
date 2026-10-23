@@ -128,7 +128,7 @@ class AbstractSettings
 
 		if( $this->count_col_key_names > 3 || $this->count_col_key_names < 1 )
 		{
-			debug_die( 'Settings keycount not supported for class '.get_class() );
+			debug_die( 'Settings keycount not supported for class '.get_class( $this ) );
 		}
 	}
 

@@ -2401,7 +2401,7 @@ class ItemListLight extends DataObjectList2
 	 * @param integer Item index
 	 * @return boolean TRUE - if content is displayed
 	 */
-	function display_list_item_contents( & $disp_Item, $chapter_mode = false, & $item_index, $params = array() )
+	function display_list_item_contents( & $disp_Item, $chapter_mode, & $item_index, $params = array() )
 	{
 		global $disp, $Item;
 
@@ -2590,7 +2590,7 @@ class ItemListLight extends DataObjectList2
 	 * @param array Params
 	 * @param boolean Changed by reference when content is displayed
 	 */
-	function display_list_images( $params = array(), & $content_is_displayed )
+	function display_list_images( $params, & $content_is_displayed )
 	{
 		$params = array_merge( array(
 				'before'                     => '',

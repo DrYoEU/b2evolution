@@ -1398,7 +1398,7 @@ function check_is_color( $color )
  *
  * @return string the compact date value ( yyyymmdd )
  */
-function param_compact_date( $var, $default = '', $memorize = false, $err_msg, $required = false )
+function param_compact_date( $var, $default, $memorize, $err_msg, $required = false )
 {
 	global $$var;
 
@@ -2317,7 +2317,7 @@ function _trapError( $reset = 1 )
  *
  * @return string
  */
-function param_html( $var, $default = '', $memorize = false, $err_msg )
+function param_html( $var, $default, $memorize, $err_msg )
 {
 
 }
