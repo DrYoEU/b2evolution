@@ -36,6 +36,12 @@ $GLOBALS['debug_settings'] = false;
 class AbstractSettings
 {
 	/**
+	 * Number of key columns (count of {@link $col_key_names}).
+	 * @var integer
+	 */
+	var $count_col_key_names;
+
+	/**
 	 * The DB table which stores the settings.
 	 *
 	 * @var string

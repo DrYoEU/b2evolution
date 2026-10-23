@@ -29,6 +29,7 @@ load_class( '_core/ui/_uiwidget.class.php', 'Widget' );
  *
  * @package evocore
  */
+#[\AllowDynamicProperties] // layout templates are copied onto the object field by field (see switch_layout()); PHP < 8 reads this line as a comment
 class Form extends Widget
 {
 	/**

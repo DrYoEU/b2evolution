@@ -27,6 +27,12 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
  */
 class Plugin
 {
+	/**
+	 * Path of the plugin class file, set by {@link Plugins::register()}.
+	 * @var string
+	 */
+	var $classfile_path;
+
 	/**#@+
 	 * Variables below MUST be overriden by plugin implementations,
 	 * either in the subclass declaration or in the subclass constructor.

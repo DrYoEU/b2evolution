@@ -21,6 +21,11 @@ load_class( '_core/model/db/_sql.class.php', 'SQL' );
  */
 class ItemQuery extends SQL
 {
+	var $dbtablename;
+	var $dbprefix;
+	var $dbIDname;
+	var $m;
+	var $w;
 	var $p;
 	var $pl;
 	var $title;

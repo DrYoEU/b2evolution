@@ -25,6 +25,22 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
  */
 class Hit
 {
+	/**#@+
+	 * User agent detection flags, initialized by {@link detect_useragent()}.
+	 * @var boolean
+	 */
+	var $is_lynx;
+	var $is_firefox;
+	var $is_gecko;
+	var $is_IE;
+	var $is_winIE;
+	var $is_macIE;
+	var $is_chrome;
+	var $is_safari;
+	var $is_opera;
+	var $is_NS4;
+	/**#@-*/
+
 	/**
 	 * ID in DB, gets set when {@link log()} was called and the hit was logged.
 	 */

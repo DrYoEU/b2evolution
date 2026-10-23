@@ -36,6 +36,18 @@ class Item extends ItemLight
 	var $datecreated;
 
 	/**
+	 * Custom fields of this Item, loaded lazily (see {@link Item::get_custom_fields_defs()}).
+	 * @var array|NULL
+	 */
+	var $custom_fields;
+
+	/**
+	 * ID of the Item Type the custom fields were loaded for.
+	 * @var integer|NULL
+	 */
+	var $custom_fields_loaded_ityp_ID;
+
+	/**
 	 * The User who has created the Item (lazy-filled).
 	 * @see Item::get_creator_User()
 	 * @see Item::set_creator_User()
