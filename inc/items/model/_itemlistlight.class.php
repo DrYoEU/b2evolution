@@ -32,6 +32,12 @@ load_funcs('items/model/_item.funcs.php');
 class ItemListLight extends DataObjectList2
 {
 	/**
+	 * Name of the filterset saved in the Session for this list.
+	 * @var string
+	 */
+	var $filterset_name;
+
+	/**
 	 * SQL object for the Query
 	 */
 	var $ItemQuery;
