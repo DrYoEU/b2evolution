@@ -42,6 +42,24 @@ class Item extends ItemLight
 	var $custom_fields;
 
 	/**
+	 * Number of content pages (set by {@link split_pages()}).
+	 * @var integer
+	 */
+	var $pages;
+
+	/**
+	 * Cache for {@link has_content_parts()}.
+	 * @var array
+	 */
+	var $cache_has_content_parts;
+
+	/**
+	 * Renderer plugins validated for this Item (see {@link get_renderers_validated()}).
+	 * @var array|NULL
+	 */
+	var $renderers_validated;
+
+	/**
 	 * ID of the Item Type the custom fields were loaded for.
 	 * @var integer|NULL
 	 */

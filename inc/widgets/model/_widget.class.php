@@ -32,6 +32,12 @@ class ComponentWidget extends DataObject
 	 */
 	var $wico_ID;
 
+	/**
+	 * Renderer plugins validated for this widget (see {@link get_renderers_validated()}).
+	 * @var array|NULL
+	 */
+	var $renderers_validated;
+
 	var $order;
 	/**
 	 * @var string Type of the plugin ("core" or "plugin")

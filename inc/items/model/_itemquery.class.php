@@ -30,6 +30,11 @@ class ItemQuery extends SQL
 	var $pl;
 	var $title;
 	var $blog;
+	var $Blog;
+	var $cat_array;
+	var $cat_modifier;
+	var $assignees_logins;
+	var $author_assignee;
 	var $cat;
 	var $catsel;
 	var $show_statuses;
