@@ -268,7 +268,7 @@ function import_regions( $country_ID, $file_path )
 	$r = 0;
 	$regions_insert_values = array();
 	$regions_update_values = array();
-	while( $data = fgetcsv( $file_handle, 1024, ";" ) )
+	while( $data = fgetcsv( $file_handle, 1024, ";", "\"", "\\" ) )
 	{
 		$r++;
 		if( $r == 1 )
@@ -373,7 +373,7 @@ function import_subregions( $country_ID, $file_path, $auto_create_regions = fals
 	$subregions_insert_values = array();
 	$subregions_update_values = array();
 	$count_insert_regions = 0;
-	while( $data = fgetcsv( $file_handle, 1024, ";" ) )
+	while( $data = fgetcsv( $file_handle, 1024, ";", "\"", "\\" ) )
 	{
 		$s++;
 		if( $s == 1 )
@@ -513,7 +513,7 @@ function import_cities( $country_ID, $file_path )
 	$c = 0;
 	$cities_insert_values = array();
 	$cities_update_values = array();
-	while( $data = fgetcsv( $file_handle, 1024, ";" ) )
+	while( $data = fgetcsv( $file_handle, 1024, ";", "\"", "\\" ) )
 	{
 		if( $c == 0 )
 		{	// Skip first row with titles
