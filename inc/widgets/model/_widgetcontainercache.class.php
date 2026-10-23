@@ -65,7 +65,8 @@ class WidgetContainerCache extends DataObjectCache
 		$container_code = $WidgetContainer->get( 'code' );
 		if( ! empty( $container_code ) )
 		{	// This container is not shared and it is a main container ( has code )
-			$skin_type = $WidgetContainer->get( 'skin_type' );
+			// NULL skin type is cached under the '' key (PHP 8.5 deprecates NULL as an array offset):
+			$skin_type = (string) $WidgetContainer->get( 'skin_type' );
 			if( ! isset( $this->cache_by_coll_skintype_code[ $WidgetContainer->coll_ID ][ $skin_type ] ) )
 			{
 				$this->cache_by_coll_skintype_code[ $WidgetContainer->coll_ID ][ $skin_type ] = array();
