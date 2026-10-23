@@ -417,7 +417,7 @@ class ItemListLight extends DataObjectList2
 
 		if( ( empty( $catsel ) || // 'catsel' multicats filter is not defined
 		      ( is_array( $catsel ) && count( $catsel ) == 1 ) // 'catsel' filter is used for single cat, e.g. when skin config 'cat_array_mode' = 'parent'
-		    ) && preg_match( '~^[0-9]+$~', $cat ) ) // 'cat' filter is ID of category and NOT modifier for 'catsel' multicats
+		    ) && preg_match( '~^[0-9]+$~', (string) $cat ) ) // 'cat' filter is ID of category and NOT modifier for 'catsel' multicats
 		{	// We are on a single cat page: (equivalent to $disp_detail == 'posts-topcat')
 			// NOTE: we must have selected EXACTLY ONE CATEGORY through the cat parameter
 			// BUT: - this can resolve to including children

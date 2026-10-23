@@ -944,8 +944,8 @@ class Hit
 		$sql_insert_fields = array(
 				'hit_datetime'          => 'FROM_UNIXTIME( '.$localtimenow.' )',
 				'hit_uri'               => $DB->quote( substr( $ReqURI, 0, 250 ) ), // VARCHAR(250) and likely to be longer
-				'hit_disp'              => $DB->quote( substr( $disp, 0, 30 ) ), // VARCHAR(30) and likely to be longer
-				'hit_ctrl'              => $DB->quote( substr( $ctrl, 0, 30 ) ), // VARCHAR(30) and likely to be longer
+				'hit_disp'              => $DB->quote( substr( (string) $disp, 0, 30 ) ), // VARCHAR(30) and likely to be longer; NULL on admin pages
+				'hit_ctrl'              => $DB->quote( substr( (string) $ctrl, 0, 30 ) ), // VARCHAR(30) and likely to be longer; NULL on front pages
 				'hit_action'            => $DB->quote( substr( $this->action, 0, 30 ) ), // VARCHAR(30) and likely to be longer
 				'hit_type'              => $DB->quote( $this->hit_type ),
 				'hit_referer_type'      => $DB->quote( $this->referer_type ),

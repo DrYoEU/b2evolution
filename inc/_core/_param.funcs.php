@@ -1404,7 +1404,7 @@ function param_compact_date( $var, $default, $memorize, $err_msg, $required = fa
 
 	param( $var, 'string', $default, $memorize );
 
-	if( preg_match( '#^[0-9]{4,}$#', $$var ) )
+	if( preg_match( '#^[0-9]{4,}$#', (string) $$var ) )
 	{	// Valid compact date, all good.
 		return $$var;
 	}

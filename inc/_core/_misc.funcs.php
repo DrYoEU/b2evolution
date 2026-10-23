@@ -10568,7 +10568,7 @@ function get_import_attachments_folder( $file_path, $first_folder = false )
  */
 function clear_ids_list( $ids_list, $separator = ',' )
 {
-	if( $ids_list === '' )
+	if( $ids_list === '' || $ids_list === NULL )
 	{	// Empty list:
 		return $ids_list;
 	}
